@@ -2,14 +2,17 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-app.get("/", (req, res) =>{
-    res.send("Trang Chủ")
+app.set("views", "./views");
+app.set("view engine", "pug");
+
+app.get("/", (req, res) => {
+    res.render("client/pages/home/index");
 })
 
-app.get("/products", (req, res) =>{
-    res.send("Trang Danh Sách SP")
+app.get("/products", (req, res) => {
+    res.render("client/pages/products/index");
 })
 
-app.listen(port ,() =>{
+app.listen(port, () => {
     console.log(`Chay thanh cong vao cong ${port}`);
 });
